@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BoilerHedge — intro</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#000; display:flex; align-items:center; justify-content:center;
+         height:100vh; overflow:hidden; font-family:'Inter',sans-serif; }
+  .stage { position:relative; height:100vh; aspect-ratio:9/16; overflow:hidden;
+           background:#0e0e0d; container-type:inline-size; }
+  .scene { position:absolute; inset:0; opacity:0; }
+  .scene .bg { position:absolute; inset:0; background-size:cover;
+               background-position:center 55%;
+               filter:saturate(0.34) contrast(1.05) brightness(0.30); }
+  .scene::after { content:""; position:absolute; inset:0;
+    background: linear-gradient(to top, rgba(14,14,13,0.96) 3%, transparent 45%),
+      radial-gradient(ellipse 110% 80% at 50% 48%, transparent 38%, rgba(14,14,13,0.75) 100%); }
+  .bloom { position:absolute; inset:0;
+    background:radial-gradient(ellipse 62% 34% at 50% 46%,
+      rgba(207,185,145,0.22), rgba(207,185,145,0.07) 45%, transparent 72%);
+    mix-blend-mode:screen; }
+  .copy { position:absolute; inset:0; z-index:3; display:flex; flex-direction:column;
+          align-items:center; justify-content:center; text-align:center; padding:0 7%; }
+  .word { font-size:8.2cqw; font-weight:300; letter-spacing:0.18em; text-indent:0.18em;
+          text-transform:uppercase; color:rgba(255,255,255,0.96); line-height:1.05;
+          white-space:nowrap; }
+  .word .g { color:#cfb991; }
+  .kicker { margin-top:3.4vh; font-size:2.15cqw; font-weight:500; letter-spacing:0.26em;
+            text-indent:0.26em; text-transform:uppercase; color:rgba(255,255,255,0.62);
+            white-space:nowrap; }
+  .big { font-family:'Source Serif 4',Georgia,serif; font-size:7.4cqw; font-weight:600;
+         letter-spacing:-0.02em; line-height:1.16; color:#f4f2ec; }
+  .big em { color:#cfb991; font-style:italic; }
+  .rule { width:44px; height:1px; background:#cfb991; margin-bottom:2.6vh; }
+
+  /* Two cards, 8s loop. Deliberately no push-in — this gets captured as a
+     GIF at a low frame rate, and continuous motion would judder. */
+  .s1 { animation:a 8s linear infinite; }
+  .s2 { animation:b 8s linear infinite; }
+  @keyframes a { 0%{opacity:1} 44%{opacity:1} 50%{opacity:0} 100%{opacity:0} }
+  @keyframes b { 0%{opacity:0} 44%{opacity:0} 50%{opacity:1} 94%{opacity:1} 100%{opacity:0} }
+</style>
+</head>
+<body>
+<div class="stage">
+  <section class="scene s1">
+    <div class="bg" style="background-image:url('img/p%20shot%206.jpg')"></div>
+    <div class="bloom"></div>
+    <div class="copy">
+      <div class="word">Boiler<span class="g">Hedge</span></div>
+      <div class="kicker">Purdue's first hedge fund society</div>
+    </div>
+  </section>
+  <section class="scene s2">
+    <div class="bg" style="background-image:url('img/purdue%20shot%204.jpg')"></div>
+    <div class="bloom"></div>
+    <div class="copy">
+      <div class="rule"></div>
+      <div class="big">Purdue had finance clubs.<br>It didn't have <em>this</em>.</div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
