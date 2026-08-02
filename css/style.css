@@ -1261,7 +1261,7 @@ a.team-card:hover .view-profile {
   /* bottom padding lifts the wordmark into the open sky above the arch —
      the arch carries its own "PURDUE UNIVERSITY" lettering dead centre,
      and two sets of type stacked on each other reads as a mistake */
-  padding: 0 28px 52vh;
+  padding: 0 28px 64vh;
   display: flex;
   flex-direction: column;
   align-items: center;
