@@ -1271,6 +1271,7 @@ a.team-card:hover .view-profile {
   max-width: 100%;
   margin: 0 auto;
   padding: 0 28px;
+  transform: translateY(-9vh);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1309,22 +1310,17 @@ a.team-card:hover .view-profile {
 .brand-lockup {
   display: block;
   width: clamp(260px, 56vw, 780px);
-  /* The source PNG is 1700x619, but its visible art occupies only the
-     top-left 1275x410. Crop that transparent right/bottom padding through
-     the mask so the artwork—not the file canvas—is truly centred. */
-  aspect-ratio: 1275 / 410;
+  /* Match the complete source canvas so no part of the wordmark can crop. */
+  aspect-ratio: 1700 / 619;
   background-color: var(--text);
   -webkit-mask-image: url("../img/BoilerHedge_logo_transparent_exact_navy.png");
   mask-image: url("../img/BoilerHedge_logo_transparent_exact_navy.png");
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  /* Position the oversized mask around the artwork's true alpha bounds.
-     This preserves the complete logo while excluding only transparent
-     canvas around it. */
-  -webkit-mask-position: 51.765% 43.062%;
-  mask-position: 51.765% 43.062%;
-  -webkit-mask-size: 133.333% auto;
-  mask-size: 133.333% auto;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
   margin: 0 auto;
 }
 
@@ -1424,7 +1420,9 @@ a.team-card:hover .view-profile {
   letter-spacing: 0.34em;
   text-transform: uppercase;
   text-indent: 0.34em;
-  margin: clamp(10px, 1.8vh, 18px) 0 0;
+  /* Pull the caption across the PNG's transparent bottom padding without
+     cropping or enlarging the logo itself. */
+  margin: clamp(-42px, -3.5vw, -12px) 0 0;
   opacity: calc(1 - 1.5 * var(--p));
 }
 
