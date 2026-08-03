@@ -1270,10 +1270,7 @@ a.team-card:hover .view-profile {
   height: 100%;
   max-width: 100%;
   margin: 0 auto;
-  /* bottom padding lifts the wordmark into the open sky above the arch —
-     the arch carries its own "PURDUE UNIVERSITY" lettering dead centre,
-     and two sets of type stacked on each other reads as a mistake */
-  padding: 0 28px 64vh;
+  padding: 0 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1321,8 +1318,11 @@ a.team-card:hover .view-profile {
   mask-image: url("../img/BoilerHedge_logo_transparent_exact_navy.png");
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  -webkit-mask-position: left top;
-  mask-position: left top;
+  /* Position the oversized mask around the artwork's true alpha bounds.
+     This preserves the complete logo while excluding only transparent
+     canvas around it. */
+  -webkit-mask-position: 51.765% 43.062%;
+  mask-position: 51.765% 43.062%;
   -webkit-mask-size: 133.333% auto;
   mask-size: 133.333% auto;
   margin: 0 auto;
