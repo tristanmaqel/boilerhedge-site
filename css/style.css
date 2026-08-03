@@ -1312,16 +1312,19 @@ a.team-card:hover .view-profile {
 .brand-lockup {
   display: block;
   width: clamp(260px, 56vw, 780px);
-  aspect-ratio: 1536 / 900;
+  /* The source PNG is 1700x619, but its visible art occupies only the
+     top-left 1275x410. Crop that transparent right/bottom padding through
+     the mask so the artwork—not the file canvas—is truly centred. */
+  aspect-ratio: 1275 / 410;
   background-color: var(--text);
   -webkit-mask-image: url("../img/BoilerHedge_logo_transparent_exact_navy.png");
   mask-image: url("../img/BoilerHedge_logo_transparent_exact_navy.png");
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
+  -webkit-mask-position: left top;
+  mask-position: left top;
+  -webkit-mask-size: 133.333% auto;
+  mask-size: 133.333% auto;
   margin: 0 auto;
 }
 
@@ -1421,7 +1424,7 @@ a.team-card:hover .view-profile {
   letter-spacing: 0.34em;
   text-transform: uppercase;
   text-indent: 0.34em;
-  margin: 4.5vh 0 0;   /* was crowding the arch lettering below it */
+  margin: clamp(10px, 1.8vh, 18px) 0 0;
   opacity: calc(1 - 1.5 * var(--p));
 }
 
