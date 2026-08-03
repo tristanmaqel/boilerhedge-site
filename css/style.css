@@ -1067,6 +1067,23 @@ a.team-card:hover .view-profile {
   background: var(--black);
 }
 
+/* the seal, masked and painted gold, centred above the footer columns */
+.footer-seal {
+  width: 96px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 44px;
+  background-color: var(--gold);
+  -webkit-mask-image: url("../img/seal transparent.png");
+  mask-image: url("../img/seal transparent.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  opacity: 0.9;
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -1294,17 +1311,53 @@ a.team-card:hover .view-profile {
    logo is navy-on-cream — unusable on a navy background. Drawn this way it
    renders in any colour, stays sharp at any size, and weighs nothing.
    Swap in a proper transparent PNG/SVG export whenever there is one. */
+/* The real primary logo — swirl and wordmark together, straight from the
+   brand file. Masked so it can be painted off-white on the dark hero; the
+   source artwork is navy and would otherwise vanish into the background. */
 .brand-lockup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.2vh;
+  display: block;
+  width: clamp(260px, 56vw, 780px);
+  aspect-ratio: 1536 / 900;
+  background-color: var(--text);
+  -webkit-mask-image: url("../img/BoilerHedge_logo_transparent_exact_navy.png");
+  mask-image: url("../img/BoilerHedge_logo_transparent_exact_navy.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  margin: 0 auto;
 }
 
+/* The real wave artwork, transparent PNG used as a CSS mask. The mask takes
+   the alpha channel and the element is simply painted brand gold — so the
+   colour is exact rather than filtered toward, and nothing blends with the
+   photo behind it. */
 .brand-wave {
-  width: clamp(120px, 26vw, 380px);
-  height: auto;
-  color: var(--gold);
+  width: clamp(150px, 32vw, 440px);
+  aspect-ratio: 1536 / 700;
+  background-color: var(--gold);
+  -webkit-mask-image: url("../img/swirl transparent.png");
+  mask-image: url("../img/swirl transparent.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+/* keeps the name available to screen readers and search engines now that the
+   visible wordmark is artwork rather than text */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .brand-word {
@@ -1338,7 +1391,23 @@ a.team-card:hover .view-profile {
   color: var(--black);
 }
 
-.nav-mark-icon svg { width: 22px; height: auto; display: block; }
+/* Same mask on the gold circle, painted navy so the wave reads as a cut-out. */
+.nav-mark-icon::before {
+  content: "";
+  width: 24px;
+  aspect-ratio: 1536 / 700;
+  background-color: var(--black);
+  -webkit-mask-image: url("../img/swirl transparent.png");
+  mask-image: url("../img/swirl transparent.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.nav-mark-icon img { display: none; }
 
 .nav-mark-text {
   font-family: var(--serif);
