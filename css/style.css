@@ -1271,7 +1271,7 @@ a.team-card:hover .view-profile {
   max-width: 100%;
   margin: 0 auto;
   padding: 0 28px;
-  transform: translateY(-16vh);
+  transform: translateY(-23vh);
   display: flex;
   flex-direction: column;
   align-items: center;
