@@ -1067,21 +1067,16 @@ a.team-card:hover .view-profile {
   background: var(--black);
 }
 
-/* the seal, masked and painted gold, centred above the footer columns */
+/* The seal is multicolour — navy, gold and cream — so it is shown as-is
+   rather than masked. Masking would flatten it to one solid colour. */
 .footer-seal {
-  width: 96px;
-  aspect-ratio: 1 / 1;
+  width: 104px;
+  height: 104px;
   margin: 0 auto 44px;
-  background-color: var(--gold);
-  -webkit-mask-image: url("../img/seal transparent.png");
-  mask-image: url("../img/seal transparent.png");
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  opacity: 0.9;
+  background-image: url("../img/seal transparent.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .footer-grid {
