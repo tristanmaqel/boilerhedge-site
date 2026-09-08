@@ -1416,7 +1416,10 @@ a.team-card:hover .view-profile {
   font-family: var(--sans);
   font-size: clamp(0.6rem, 1.05vw, 0.78rem);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.88);
+  /* The arch inscription sits directly behind this line; the shadow keeps
+     the caption legible where the two overlap. */
+  text-shadow: 0 1px 3px rgba(4, 32, 67, 0.95), 0 2px 18px rgba(4, 32, 67, 0.8);
   letter-spacing: 0.34em;
   text-transform: uppercase;
   text-indent: 0.34em;
