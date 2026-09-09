@@ -1417,15 +1417,14 @@ a.team-card:hover .view-profile {
   font-size: clamp(0.6rem, 1.05vw, 0.78rem);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.88);
-  /* The arch inscription sits directly behind this line; the shadow keeps
-     the caption legible where the two overlap. */
-  text-shadow: 0 1px 3px rgba(4, 32, 67, 0.95), 0 2px 18px rgba(4, 32, 67, 0.8);
   letter-spacing: 0.34em;
   text-transform: uppercase;
   text-indent: 0.34em;
-  /* Pull the caption across the PNG's transparent bottom padding without
-     cropping or enlarging the logo itself. */
-  margin: clamp(-42px, -3.5vw, -12px) 0 0;
+  /* Sits above the wordmark, against clean sky, clear of the arch
+     inscription the caption used to collide with. */
+  order: -1;
+  margin: 0 0 clamp(10px, 1.4vw, 22px);
+  text-shadow: 0 1px 3px rgba(4, 32, 67, 0.75);
   opacity: calc(1 - 1.5 * var(--p));
 }
 
